@@ -3,18 +3,19 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
     <properties resource="jdbc.properties"/>
 
-    <!--    settings:控制mybatis全局行为    -->
     <settings>
-        <!--    设置mybatis输出日志    -->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
+
+    <typeAliases>
+        <package name="cn.cheng.crm.settings.domain"/>
+    </typeAliases>
+
     <environments default="myLoc">
         <environment id="myLoc">
             <transactionManager type="JDBC"/>
-            <!--    dataSource：数据源，连接数据库的表示数据源类型   POOLED 表示使用连接池   -->
             <dataSource type="POOLED">
                 <property name="driver" value="${jdbc.driver}"/>
                 <property name="url" value="${jdbc.url}"/>
@@ -24,6 +25,6 @@
         </environment>
     </environments>
     <mappers>
-        <!--        <mapper resource="com/cheng/dao/StudentDao.xml"/>-->
+        <package name="cn.cheng.crm.settings.dao"/>
     </mappers>
 </configuration>

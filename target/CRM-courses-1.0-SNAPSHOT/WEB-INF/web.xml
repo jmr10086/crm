@@ -7,4 +7,15 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
+
+    <!--userController开始-->
+    <servlet>
+        <servlet-name>UserController</servlet-name>
+        <servlet-class>cn.cheng.crm.settings.web.controller.UserController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserController</servlet-name>
+        <url-pattern>/settings/user/login.do</url-pattern>
+    </servlet-mapping>
+    <!--userController结束-->
 </web-app>

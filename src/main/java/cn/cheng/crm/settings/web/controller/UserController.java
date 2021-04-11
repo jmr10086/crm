@@ -9,7 +9,11 @@ public class UserController extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         System.out.println("进入用户控制器");
-        String path =request.getServletPath();
-
+        String path = request.getServletPath();
+        if ("/settings/user/login.do".equals(path)) {
+            //login(request, response);
+        } else if ("/settings/user/login.do".equals(path)) {
+            //login(request, response);
+        }
     }
 }
