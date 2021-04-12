@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.cheng.crm.settings.dao.UserDao">
-    <select id="" resultType="">
-        
+    <select id="login" resultType="User">
+        select * from tbl_user where loginAct=#{loginAct} and loginPwd=#{loginPwd}
     </select>
 </mapper>

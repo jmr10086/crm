@@ -30,9 +30,6 @@ public class PrintJson {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
 	
 	//将对象解析为json串
@@ -65,11 +62,7 @@ public class PrintJson {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
-	
 }
 
 
