@@ -8,6 +8,7 @@ import cn.cheng.crm.utils.DateTimeUtil;
 import cn.cheng.crm.utils.SqlSessionUtil;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserServiceImpl implements UserService {
@@ -41,5 +42,11 @@ public class UserServiceImpl implements UserService {
             throw new LoginException("您的ip地址受限");
         }
         return user;
+    }
+
+    @Override
+    public List<User> getUserList() {
+        List<User> ulist = dao.getUserList();
+        return ulist;
     }
 }

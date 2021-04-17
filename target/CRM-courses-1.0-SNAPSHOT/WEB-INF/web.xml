@@ -8,6 +8,17 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
+    <!--
+    jsp中的id约束
+    add/create:跳转到添加页，或者打开添加操作的模态窗口
+    save：执行添加操作
+    edit:跳转到修改页，或者打开修改操作的模态窗口
+    update：执行修改操作
+    get:执行查询操作 find/select/query...
+    特殊操作：login等
+    -->
+
+    <!--字符集过滤器开始-->
     <filter>
         <filter-name>EncodingFilter</filter-name>
         <filter-class>cn.cheng.crm.web.filter.EncodingFilter</filter-class>
@@ -16,7 +27,21 @@
         <filter-name>EncodingFilter</filter-name>
         <url-pattern>*.do</url-pattern>
     </filter-mapping>
-    <!--userController开始-->
+    <!--字符集过滤器结束-->
+
+    <!--地址栏过滤器开始-->
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>cn.cheng.crm.web.filter.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    <!--地址栏过滤器结束-->
+
+    <!--userController用户控制器开始-->
     <servlet>
         <servlet-name>UserController</servlet-name>
         <servlet-class>cn.cheng.crm.settings.web.controller.UserController</servlet-class>
@@ -25,5 +50,26 @@
         <servlet-name>UserController</servlet-name>
         <url-pattern>/settings/user/login.do</url-pattern>
     </servlet-mapping>
-    <!--userController结束-->
+    <!--userController用户控制器结束-->
+
+    <!--userController市场活动控制器开始-->
+    <servlet>
+        <servlet-name>ActivityController</servlet-name>
+        <servlet-class>cn.cheng.crm.workbench.web.controller.ActivityController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ActivityController</servlet-name>
+        <url-pattern>/workbench/activity/getUserList.do</url-pattern>
+        <url-pattern>/workbench/activity/save.do</url-pattern>
+        <url-pattern>/workbench/activity/pageList.do</url-pattern>
+        <url-pattern>/workbench/activity/delete.do</url-pattern>
+        <url-pattern>/workbench/activity/getUserListAndActivity.do</url-pattern>
+        <url-pattern>/workbench/activity/update.do</url-pattern>
+        <url-pattern>/workbench/activity/detail.do</url-pattern>
+        <url-pattern>/workbench/activity/getRemarkListByAid.do</url-pattern>
+        <url-pattern>/workbench/activity/deleteRemark.do</url-pattern>
+        <url-pattern>/workbench/activity/saveRemark.do</url-pattern>
+        <url-pattern>/workbench/activity/updateRemark.do</url-pattern>
+    </servlet-mapping>
+    <!--userController市场活动控制器结束-->
 </web-app>

@@ -12,7 +12,6 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.PriorityQueue;
 
 public class UserController extends HttpServlet {
     @Override

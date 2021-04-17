@@ -11,6 +11,7 @@
 
     <typeAliases>
         <package name="cn.cheng.crm.settings.domain"/>
+        <package name="cn.cheng.crm.workbench.domain"/>
     </typeAliases>
 
     <environments default="myLoc">
@@ -26,5 +27,6 @@
     </environments>
     <mappers>
         <package name="cn.cheng.crm.settings.dao"/>
+        <package name="cn.cheng.crm.workbench.dao"/>
     </mappers>
 </configuration>
