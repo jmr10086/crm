@@ -3,41 +3,88 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.cheng.crm.workbench.dao.ActivityDao">
-    <select id="detail" resultType="Activity">
+    <select id="getActivityListByName" resultType="Activity">
         select
             a.id,
-            u.name as owner,
             a.name,
             a.startDate,
             a.endDate,
-            a.cost,
-            a.description,
-            a.createTime,
-            a.createBy,
-            a.editTime,
-            a.editBy
+            u.name as owner
+            from tbl_activity a
+            join tbl_user u
+            on a.owner=u.id
+            where a.name like "%"#{aname}"%"
+    </select>
 
+    <select id="getActivityListByNameAndNotByClueId" resultType="Activity">
+        select
+        a.id,
+        a.name,
+        a.startDate,
+        a.endDate,
+        u.name as owner
         from tbl_activity a
         join tbl_user u
         on a.owner=u.id
-        where a.id=#{id}
+        where a.name like "%"#{aname}"%" and a.id not in(
+        select
+        activityId
+        from tbl_clue_activity_relation
+        where clueId=#{clueId}
+        )
+    </select>
+
+    <select id="getActivityListByClueId" resultType="Activity">
+                select
+                car.id as id,
+                a.name,
+                a.startDate,
+                a.endDate,
+                u.name as owner
+                from tbl_activity a
+                join tbl_user u
+                on a.owner = u.id
+                join tbl_clue_activity_relation car
+                on a.id=car.activityId
+                where car.clueId=#{clueId}
+    </select>
+
+    <select id="detail" resultType="Activity">
+        select a.id,
+               u.name as owner,
+               a.name,
+               a.startDate,
+               a.endDate,
+               a.cost,
+               a.description,
+               a.createTime,
+               a.createBy,
+               a.editTime,
+               a.editBy
+
+               from tbl_activity a
+               join tbl_user u
+               on a.owner = u.id
+        where a.id = #{id}
     </select>
 
     <update id="update">
-        update tbl_activity set
-        owner=#{owner},
-        name=#{name},
-        startDate=#{startDate},
-        endDate=#{endDate},
-        cost=#{cost},
-        description=#{description},
-        editTime=#{editTime},
-        editBy=#{editBy}
-        where id=#{id}
+        update tbl_activity
+        set owner=#{owner},
+            name=#{name},
+            startDate=#{startDate},
+            endDate=#{endDate},
+            cost=#{cost},
+            description=#{description},
+            editTime=#{editTime},
+            editBy=#{editBy}
+        where id = #{id}
     </update>
 
     <select id="getById" resultType="Activity">
-        select * from tbl_activity where id=#{id}
+        select *
+        from tbl_activity
+        where id = #{id}
     </select>
 
     <delete id="delete">
@@ -97,27 +144,23 @@
 
     <insert id="save">
 
-        insert into tbl_activity(
-            id,
-            owner,
-            name,
-            startDate,
-            endDate,
-            cost,
-            description,
-            createTime,
-            createBy
-        )
-        values(
-                  #{id},
-                  #{owner},
-                  #{name},
-                  #{startDate},
-                  #{endDate},
-                  #{cost},
-                  #{description},
-                  #{createTime},
-                  #{createBy}
-              )
+        insert into tbl_activity(id,
+                                 owner,
+                                 name,
+                                 startDate,
+                                 endDate,
+                                 cost,
+                                 description,
+                                 createTime,
+                                 createBy)
+        values (#{id},
+                #{owner},
+                #{name},
+                #{startDate},
+                #{endDate},
+                #{cost},
+                #{description},
+                #{createTime},
+                #{createBy})
     </insert>
 </mapper>

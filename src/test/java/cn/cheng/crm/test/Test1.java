@@ -18,5 +18,13 @@ public class Test1 {
         //创建人为当前登录的用户
         String createBy = ((User) request.getSession().getAttribute("user")).getName();
         */
+        /*$(".time").datetimepicker({
+                minView: "month",
+                language: 'zh-CN',
+                format: "yyyy-mm-dd",
+                autoclose: true,
+                todayBtn: true,
+                pickerPosition: "bottom-left"
+            });*/
     }
 }

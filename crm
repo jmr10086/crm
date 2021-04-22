@@ -1,0 +1,45 @@
+线索模块相关表：
+tbl_clue 线索表
+tbl_clue_remark 线索备注表
+tbl_clue_activity_relation 线索和市场活动相关表
+
+客户模块相关表
+tbl_customer 客户表
+tbl_customer_remark 客户备注表
+
+联系人相关表
+tbl_contacts 联系人表
+tbl_contacts_remark 联系人备注表
+tbl_contacts_activity_relation 联系人和市场活动关联表
+
+交易模块相关表
+tbl_tran 交易表
+tbl_tran_remark 交易备注表
+tbl_tran_history 交易历史表
+
+数据字典相关表
+tbl_dic_type 字典类型表
+tbl_dic_value 字典表
+
+$.ajax({
+    url: "",
+    data: {},
+    type: "",
+    dataType: "json",
+    success: function (data) {
+
+    }
+});
+
+//创建时间为当前的系统时间
+String createTime = DateTimeUtil.getSysTime();
+String createBy = ((User) request.getSession().getAttribute("user")).getName();
+
+$(".time").datetimepicker({
+    minView: "month",
+    language: 'zh-CN',
+    format: "yyyy-mm-dd",
+    autoclose: true,
+    todayBtn: true,
+    pickerPosition: "bottom-left"
+});
