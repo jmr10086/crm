@@ -164,7 +164,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 <tr>
                     <td><input type="checkbox"/></td>
                     <td><a style="text-decoration: none; cursor: pointer;"
-                           onclick="window.location.href='workbench/transaction/detail.jsp';">动力节点-交易01</a></td>
+                           onclick="window.location.href='workbench/transaction/detail.do?id=8a171b8c424f4d0d86817231bb20d4b6';">交易123</a></td>
                     <td>动力节点</td>
                     <td>谈判/复审</td>
                     <td>新业务</td>
@@ -175,7 +175,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 <tr class="active">
                     <td><input type="checkbox"/></td>
                     <td><a style="text-decoration: none; cursor: pointer;"
-                           onclick="window.location.href='detail.html';">动力节点-交易01</a></td>
+                           onclick="window.location.href='workbench/transaction/detail.do?id=';">交易123</a></td>
                     <td>动力节点</td>
                     <td>谈判/复审</td>
                     <td>新业务</td>
