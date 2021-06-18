@@ -1,8 +1,16 @@
 package cn.cheng.crm.test;
 
+
+import org.junit.Test;
+
+import javax.servlet.http.HttpServletRequest;
+
 public class Test1 {
-    public static void main(String[] args) {
-        /*
+
+    @Test
+    public void ddd(){
+
+         /*
         $.ajax({
             url: "",
             data: {},
